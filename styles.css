@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    background-color: #000;
+}
+
+body {
+    min-height: 100vh;
+    background-color: papayawhip;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+   
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* border: solid 10px peachpuff; */
+
+}
+
+/* .grid {
+   
+} */
