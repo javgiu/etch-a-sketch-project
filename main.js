@@ -1,3 +1,6 @@
+// Try with
+// Element.getBoundingClientRect();
+
 // Get container div into a variiable
 const container = document.querySelector(".container");
 
