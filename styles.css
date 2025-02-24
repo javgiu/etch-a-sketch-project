@@ -13,8 +13,29 @@ body {
     min-height: 100vh;
     background-color: papayawhip;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+button {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #080679;
+    background-color: #696974;
+    /* border-radius: 50px; */
+    border: none;
+}
+
+button:hover {
+    background-color: #434368 ;
+}
+
+button:active {
+    background-color: #080679;
+    color: #696974;
 }
 
 .container {
@@ -23,10 +44,21 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    width: 860px;
+    height: 860px;
+
     /* border: solid 10px peachpuff; */
 
 }
 
-/* .grid {
-   
-} */
+/* Change color with CSS */
+
+.grid {
+   background-color: #ccc;
+
+}
+
+.grid-darked {
+    background-color: #000000;
+
+}
