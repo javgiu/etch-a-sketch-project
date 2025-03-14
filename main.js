@@ -61,8 +61,6 @@ function createNewGrid () {
 
     function createGrid () {
 
-        
-
         do {
             // Ask user for grid size 
             gridSize = parseInt(prompt("Write the number of squares per size that you desire(No more than 100): ", 50));
@@ -92,20 +90,20 @@ container.addEventListener("mouseover", draw);
 container.addEventListener("mousedown", draw);
 
 // Draw function
-function draw(e) {
-    console.log(e.buttons);
 
-    // Change color only if button is pressed
-    if(e.buttons === 1) {
-        
-        if (e.target.className === "grid-darked") {
-            // Erase 
-            e.target.className = "grid"
-        } else {
-            e.target.className = "grid-darked";
-        };          
-    };
-};
+
+function rainbowColor(e) {
+    e.target.style.backgroundColor = getRandomColor();
+}
+
+function getRandomColor() {
+    let color = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
+    return color;
+}
+
+function opacityChange(e) {
+    e.target.style.opacity = (e.target.style.opacity * 10 + 1)/10;
+}
 
 // // Draw event from each div
 // Array.from(container.children).forEach (div => {
@@ -128,3 +126,57 @@ function draw(e) {
 //         };          
 //     };
 // };
+
+// // New features
+
+const drawButtons = document.querySelectorAll(".draw-button");
+drawButtons.forEach(button => {
+    button.addEventListener("click", (e) => {
+        if(button.classList.contains("active")) {
+            button.classList.remove("active");
+        } else {
+            button.classList.add("active");
+        }
+        
+    });
+});
+
+const randomColorButton = document.querySelector(".random-color");
+const opacityButton = document.querySelector(".opacity");
+const clearButton = document.querySelector(".clear");
+const eraserButton = document.querySelector(".eraser");
+
+clearButton.addEventListener("click", (e) => {
+    Array.from(container.children).forEach(div => {
+        div.style.backgroundColor = "#ccc";
+    });
+})
+
+
+function draw(e) {
+    
+    if(opacityButton.classList.contains("active")) {
+        e.target.style.backgroundColor = "#000000";
+        opacityChange(e);
+    } if(randomColorButton.classList.contains("active")) {
+        rainbowColor(e);
+    } if (eraserButton.classList.contains("active")) {
+        e.target.style.backgroundColor = "#ccc";
+        e.target.style.opacity = "1";
+    } if (!document.querySelector(".active")) {
+        e.target.style.opacity = "1";
+        e.target.style.backgroundColor = "#000000";
+    }
+};
+
+opacityButton.addEventListener("click", (e) => {
+    if(opacityButton.classList.contains("active")) {
+        Array.from(container.children).forEach(div => {
+            div.style.opacity = "0";
+        });
+    } else {
+        Array.from(container.children).forEach(div => {
+            div.style.opacity = "1";
+        });
+    }
+});

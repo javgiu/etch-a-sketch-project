@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: monospace;
 }
 
 html {
@@ -13,20 +14,21 @@ body {
     min-height: 100vh;
     background-color: papayawhip;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 button {
-    margin-bottom: 10px;
+    margin: 1rem;
     padding: 10px 20px;
     font-size: 20px;
     font-weight: 800;
     color: #080679;
     background-color: #696974;
     /* border-radius: 50px; */
-    border: none;
+    border: solid;
+    cursor: pointer;
+    border-radius: 10px;
 }
 
 button:hover {
@@ -38,27 +40,54 @@ button:active {
     color: #696974;
 }
 
+h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+
 .container {
    
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 860px;
-    height: 860px;
+    width: 500px;
+    height: 500px;
 
-    /* border: solid 10px peachpuff; */
+    outline: solid blue;
 
 }
 
 /* Change color with CSS */
 
-.grid {
+/* .grid {
    background-color: #ccc;
+
+} */
+
+.grid {
+    background-color: #ccc;
+    opacity: 1;
+ 
+ }
+
+.grid-opacity {
+    background-color: #000000;
+    opacity: 0;
+}
+
+.grid-darkerd {
+    background-color: #000000;
 
 }
 
-.grid-darked {
-    background-color: #000000;
-
+button.active {
+    background-color: #080679;
+    color: #696974;
 }
